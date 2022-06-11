@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" type='text/css'>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="loading" id="loading"></div>
+    <!----------NAVIGATION BAR---------->
+    <div class="nav-wrapper" id="navBar">
+        <div class="left-side">
+            <div class="nav-title">Sébastien Annonier</div>
+        </div>
+        <div class="right-side" id="rightSide">
+            <div class="nav-link-wrapper">
+                <div class="transition-wrapper" onclick="switchScreen('../index.html')">Accueil</div>
+            </div>
+            <div class="nav-link-wrapper">
+                <div class="transition-wrapper" onclick="switchScreen('../about.html')">A propos</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!----------BANNER---------->
+        <div class="banner-wrapper" id="bannerWrapper">
+            <div class="banner-space" id="bannerTopSpace"></div>
+            <div class="banner-text">
+                <h1>Arduino</h1>
+            </div>
+        </div>
+        <!----------Content---------->
+        <div class="daggerdash">
+            <div class="content-item">
+                <img src="arduino1.png">
+                <div class="text">
+                    <h2>Des applications concrètes</h2>
+                    <p>
+                        Lors de mes études en ingénierie électrique, j'avais décidé d'acheter un kit Arduino afin de pouvoir faire des montages électroniques chez moi.
+                        Cela m'a permis d'avoir une approche beaucoup plus réelle contrairement à toutes les études théoriques que j'ai pu faire en cours.
+                        Ainsi, j'ai fait tout un panel de projet Arduino par exemple :
+                        <ul>
+                            <li>La commande de MOSFET</li>
+                            <li>la fabrication de convertisseur à découpage</li>
+                            <li>Un jardin automatisé</li>
+                        </ul>
+                        J'ai également eu l'occasion de coder des Arduino dans des milieux professionnels :
+                        <ul>
+                            <li>Pour la commande de la jauge d'essence lors de rétrofit de scooter</li>
+                            <li>Pour le traitement de données afin d'améliorer des systèmes dans un escape game</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!----------FOOTER---------->
+        <div class="footer">Vous pouvez également me trouver sur internet sous le pseudo de "Ennache"<br>Notament pour le game making et le G@MING</div>
+    </div>
+</body>
+
+<script>
+    /* Parralax and Background image*/
+    var bannerTitle = bannerWrapper.children[1].children[0].textContent;
+    var bannerUrl = "arduino_banner.png"
+    
+    bannerWrapper.style.background = "linear-gradient(rgba(0,0,0,0.7) ,rgba(0,0,0,0.7)), url("+ bannerUrl +")";
+    bannerWrapper.style.backgroundPosition = "center";
+    bannerWrapper.style.backgroundRepeat = "no-repeat";
+    bannerWrapper.style.backgroundAttachment = "fixed";
+    bannerWrapper.style.backgroundColor = "black";
+    bannerWrapper.style.backgroundPositionY = "top";
+
+    bannerWrapper.style.backgroundSize = "100em";
+    window.addEventListener("scroll", function () {
+        bannerWrapper.style.backgroundSize = (100 + 0.03 * window.scrollY) + 'em';
+    })
+
+    /* Empty space banner height */
+    /*bannerTopSpace.style.height = navBar.offsetHeight + 'px';*/
+    bannerTopSpace.style.height = '0';
+
+    /*Width Responsive*/
+    var width_threshold_navBar = 650;
+    var width_threshold_img = 650;
+    const contentImgs = document.querySelectorAll('img');
+
+    setWidth();
+    window.addEventListener("resize", function () {
+        setWidth();
+    })
+    
+    function setWidth(){
+        if (window.innerWidth <= width_threshold_navBar) {
+            navBar.style.fontSize = "1.2em";
+        }
+        else {
+            navBar.style.fontSize = "2em";
+        }
+        
+        if (window.innerWidth > width_threshold_img) {
+            contentImgs.forEach(contentImg => {
+                contentImg.classList.add('img-float-right');
+            })
+        }
+        else {
+            contentImgs.forEach(contentImg => {
+                contentImg.classList.remove('img-float-right');
+            })
+        }
+    }
+
+    /* Scroll Nav Bar */
+    var old_scroll_position = window.scrollY;
+    var nav_hide_state = false;
+
+    window.addEventListener("scroll", function () {
+        var new_scroll_position = window.scrollY;
+        if(new_scroll_position > old_scroll_position && !nav_hide_state){
+            navBar.classList.add('nav-hide');
+            nav_hide_state = true;
+        }
+        else if (new_scroll_position < old_scroll_position && nav_hide_state){
+            navBar.classList.remove('nav-hide');
+            nav_hide_state = false;
+            
+        }
+        old_scroll_position = new_scroll_position;
+    })
+
+    /* Transition */
+    async function switchScreen(url) {
+        loading.style.transform = 'translate(0%, 0%)';
+        await new Promise(resolve => setTimeout(resolve, 500));
+        window.location = url
+    }
+    
+    document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+        loading.style.transform = 'translate(0%, -100%)';
+    }
+    };
+    </script>
+
+</html>

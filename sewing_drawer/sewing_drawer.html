@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" type='text/css'>
+    <link rel="stylesheet" href="../styles.css">
+</head>
+
+<body>
+    <div class="loading" id="loading"></div>
+    <!----------NAVIGATION BAR---------->
+    <div class="nav-wrapper" id="navBar">
+        <div class="left-side">
+            <div class="nav-title">Sébastien Annonier</div>
+        </div>
+        <div class="right-side" id="rightSide">
+            <div class="nav-link-wrapper">
+                <div class="transition-wrapper" onclick="switchScreen('../index.html')">Accueil</div>
+            </div>
+            <div class="nav-link-wrapper">
+                <div class="transition-wrapper" onclick="switchScreen('../about.html')">A propos</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!----------BANNER---------->
+        <div class="banner-wrapper" id="bannerWrapper">
+            <div class="banner-space" id="bannerTopSpace"></div>
+            <div class="banner-text">
+                <h1>Sewing Drawer</h1>
+            </div>
+        </div>
+        <!----------Content---------->
+        <div class="daggerdash">
+            <div class="content-item">
+                <div class="img-long">
+                    <img src="sewing_drawer_1.jpg">
+                </div>
+                <div class="text">
+                    <h2>Un Projet python ?</h2>
+                    <p>
+                        Afin de pouvoir créer des applications plus pousser, je me suis penché vers le language Python.
+                        Après quelques projets d'autoformation, voici Sewing Drawer, mon premier projet python terminé.
+                        <br> En soi le plus difficile lors de ce projet n'a pas été le language Python mais plutôt la librairie Kivy.
+                        <br> En effet j'ai créé toute l'interface graphique de l'application avec Kivy, et j'ai utilisé sqlite pour gérer les bases de données.
+                        <br>
+                        <br> Ainsi l'application permet de faire des inventaires de coutures, avec des catégories différentes:
+                        <ul>
+                            <li>Le tissu</li>
+                            <li>Les projets</li>
+                            <li>Une liste de courses</li>
+                            <li>Les mesures</li>
+                        </ul>
+                        Chaque catégorie possède ses propres attributs et cela permet également de trier les objets selon ces attributs.
+                        <br>
+                        <br>Par contre, le point le plus important du projet est que j'ai ainsi pu créer un fichier APK de l'application
+                        afin d'avoir son inventaire directement sur son portable.
+                        <br>
+                        <br> Vous pouvez d'ailleurs trouver ce fichier <a href="https://drive.google.com/drive/folders/1mWjw36OCbddmOvUjFMC3QN-nqCKQT4sP?usp=sharing">ici</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!----------FOOTER---------->
+        <div class="footer">Vous pouvez également me trouver sur internet sous le pseudo de "Ennache"<br>Notament pour le game making et le G@MING</div>
+    </div>
+</body>
+
+<script>
+    /* Parralax and Background image*/
+    var bannerTitle = bannerWrapper.children[1].children[0].textContent;
+    var bannerUrl = "sewing_drawer_banner.png"
+    
+    bannerWrapper.style.background = "linear-gradient(rgba(0,0,0,0.7) ,rgba(0,0,0,0.7)), url("+ bannerUrl +")";
+    bannerWrapper.style.backgroundPosition = "center";
+    bannerWrapper.style.backgroundRepeat = "no-repeat";
+    bannerWrapper.style.backgroundAttachment = "fixed";
+    bannerWrapper.style.backgroundColor = "black";
+    bannerWrapper.style.backgroundPositionY = "top";
+
+    bannerWrapper.style.backgroundSize = "100em";
+    window.addEventListener("scroll", function () {
+        bannerWrapper.style.backgroundSize = (100 + 0.03 * window.scrollY) + 'em';
+    })
+
+    /* Empty space banner height */
+    /*bannerTopSpace.style.height = navBar.offsetHeight + 'px';*/
+    bannerTopSpace.style.height = '0';
+
+    /*Width Responsive*/
+    var width_threshold_navBar = 650;
+    var width_threshold_img = 650;
+    const contentImgs = document.querySelectorAll('img');
+
+    setWidth();
+    window.addEventListener("resize", function () {
+        setWidth();
+    })
+    
+    function setWidth(){
+        if (window.innerWidth <= width_threshold_navBar) {
+            navBar.style.fontSize = "1.2em";
+        }
+        else {
+            navBar.style.fontSize = "2em";
+        }
+        
+        if (window.innerWidth > width_threshold_img) {
+            contentImgs.forEach(contentImg => {
+                contentImg.classList.add('img-float-right');
+            })
+        }
+        else {
+            contentImgs.forEach(contentImg => {
+                contentImg.classList.remove('img-float-right');
+            })
+        }
+    }
+
+    /* Scroll Nav Bar */
+    var old_scroll_position = window.scrollY;
+    var nav_hide_state = false;
+
+    window.addEventListener("scroll", function () {
+        var new_scroll_position = window.scrollY;
+        if(new_scroll_position > old_scroll_position && !nav_hide_state){
+            navBar.classList.add('nav-hide');
+            nav_hide_state = true;
+        }
+        else if (new_scroll_position < old_scroll_position && nav_hide_state){
+            navBar.classList.remove('nav-hide');
+            nav_hide_state = false;
+            
+        }
+        old_scroll_position = new_scroll_position;
+    })
+
+    /* Transition */
+    async function switchScreen(url) {
+        loading.style.transform = 'translate(0%, 0%)';
+        await new Promise(resolve => setTimeout(resolve, 500));
+        window.location = url
+    }
+    
+    document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+        loading.style.transform = 'translate(0%, -100%)';
+    }
+    };
+    </script>
+
+</html>

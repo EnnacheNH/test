@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet" type='text/css'>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="loading" id="loading"></div>
+    <!----------NAVIGATION BAR---------->
+    <div class="nav-wrapper" id="navBar">
+        <div class="left-side">
+            <div class="nav-title">Sébastien Annonier</div>
+        </div>
+        <div class="right-side" id="rightSide">
+            <div class="nav-link-wrapper">
+                <div class="transition-wrapper" onclick="switchScreen('index.html')">Accueil</div>
+            </div>
+            <div class="nav-link-wrapper">
+                <div class="transition-wrapper" onclick="switchScreen('about.html')">A propos</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <!----------BANNER---------->
+        <div class="banner-wrapper" id="bannerWrapper">
+            <div class="banner-space" id="bannerTopSpace"></div>
+            <div class="banner-text">
+                <h1>Qui suis-je ?</h1>
+            </div>
+        </div>
+        <!----------Content---------->
+        <div class="about-img-text">
+            <img src="profile.jpg">
+            <div class="text-wrapper" id="fadeWrapper">
+                <div class="text fadeOut" id="fadeIn">
+                    <h2>Ca, c'est moi.</h2>
+                    <p>
+                        Anciennement étudiant en école d'ingénierie électrique et passionné de jeux vidéo,
+                        je me suis lancé le défi de trouver une place dans le monde du développement et de la programmation.
+                        <br>Pourquoi ? Simplement parce que ça me plaît ! Pouvoir créer quelque chose et le voir fonctionner,
+                        c'est passionnant. Ainsi je suis très motivé à en apprendre plus, et à créer toujours plus de choses !
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="about-parcours">
+            <h2>Mon parcours</h2>
+            <div class="about-time-line">
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2021 - 6 mois</div>
+                    <h3>Only The Brain</h3>
+                    <h4>Maintenance et Amélioration</h4>
+                    <p>
+                        Assurer la qualité des salles d'un escape game
+                        et game masterisation des sessions de jeu.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2020</div>
+                    <h3>Grenoble INP ENSE3</h3>
+                    <h4>Ingénierie l'Energie Electrique</h4>
+                    <p>
+                        Formation d'ingénieur électrique pour les réseaux,
+                        les machines électromagnétique et l'électronique de puissance.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2020 - 10 semaine</div>
+                    <h3>NOIL</h3>
+                    <h4>Stage - Rétrofit de scooter thermique en électrique</h4>
+                    <p>
+                        Prototypages de véhicules rétrofités et préparations pour leur homologations.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2019 - 4 semaine</div>
+                    <h3>Bouygues Construction Australia</h3>
+                    <h4>Stage - Opération et maintenance de centrales photovoltaïques</h4>
+                    <p>
+                        Vérification des indices de performances des centrales photovoltaïques et
+                        analyse de données.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2015/2017</div>
+                    <h3>Université Lyon 1</h3>
+                    <h4>DUT Génie Thermique et Energie</h4>
+                    <p>
+                        Formation en génie thermique, thermodynamique et mécanique des fluides.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2017 - 10 semaine</div>
+                    <h3>Engie Ineo</h3>
+                    <h4>Stage - Câblage électrique d'un tunnelier</h4>
+                    <p>
+                        Formation technique au métier d'électricien et installation des câbles pour la construction d'un tunnelier.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2016 - 4 semaine</div>
+                    <h3>Electricité de Tahiti</h3>
+                    <h4>Stage - Maintenance électrique d'une centrale thermique</h4>
+                    <p>
+                        Immersion dans le monde professionnel.
+                    </p>
+                </div>
+                <div class="time-line-item">
+                    <div class="ball"></div>
+                    <div class="date">2015</div>
+                    <h3>Baccalauréat Science et Technique de Laboratoire</h3>
+                    <h4>Lycée Lamennais de Papeete</h4>
+                    <p>
+                        Filière technique scientifique spécialisée en biotechnologie.
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!----------FOOTER---------->
+        <div class="footer">Vous pouvez également me trouver sur internet sous le pseudo de "Ennache"<br>Notament pour le game making et le G@MING</div>
+    </div>
+</body>
+
+<script>
+    /* Parralax and Background image*/
+    var bannerTitle = bannerWrapper.children[1].children[0].textContent;
+    var bannerUrl = "about_banner.jpg"
+    
+    bannerWrapper.style.background = "linear-gradient(rgba(0,0,0,0.7) ,rgba(0,0,0,0.7)), url("+ bannerUrl +")";
+    bannerWrapper.style.backgroundPosition = "center";
+    bannerWrapper.style.backgroundRepeat = "no-repeat";
+    bannerWrapper.style.backgroundAttachment = "fixed";
+    bannerWrapper.style.backgroundColor = "black";
+    bannerWrapper.style.backgroundPositionY = "top";
+
+    bannerWrapper.style.backgroundSize = "100em";
+    window.addEventListener("scroll", function () {
+        bannerWrapper.style.backgroundSize = (100 + 0.03 * window.scrollY) + 'em';
+    })
+
+    /* Empty space banner height */
+    bannerTopSpace.style.height = '0';
+
+    /*Width Responsive*/
+    var width_threshold_navBar = 650;
+
+    setWidth();
+    window.addEventListener("resize", function () {
+        setWidth();
+    })
+    
+    function setWidth(){
+        if (window.innerWidth <= width_threshold_navBar) {
+            navBar.style.fontSize = "1.2em";
+        }
+        else {
+            navBar.style.fontSize = "2em";
+        }
+    }
+
+    /* Scroll Nav Bar */
+    var old_scroll_position = window.scrollY;
+    var nav_hide_state = false;
+
+    window.addEventListener("scroll", function () {
+        var new_scroll_position = window.scrollY;
+        if(new_scroll_position > old_scroll_position && !nav_hide_state){
+            navBar.classList.add('nav-hide');
+            nav_hide_state = true;
+        }
+        else if (new_scroll_position < old_scroll_position && nav_hide_state){
+            navBar.classList.remove('nav-hide');
+            nav_hide_state = false;
+            
+        }
+        old_scroll_position = new_scroll_position;
+    })
+
+    /* Fade In */
+    const options = {
+        root: null,// it is the viewport
+        threshold: 0,
+        rootMargin: "-150px 0px -150px 0px"
+    };
+
+    const observer = new IntersectionObserver(function(entries, observer){
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.children[0].classList.remove('fadeOut');
+                entry.target.children[0].classList.add('fadeIn');
+            }
+            else {
+                entry.target.children[0].classList.add('fadeOut');
+                entry.target.children[0].classList.remove('fadeIn');
+            }
+        })
+    }, options);
+
+    observer.observe(fadeWrapper);
+
+    /* Transition */
+    async function switchScreen(url) {
+        loading.style.transform = 'translate(0%, 0%)';
+        await new Promise(resolve => setTimeout(resolve, 500));
+        window.location = url
+    }
+    
+    document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+        loading.style.transform = 'translate(0%, -100%)';
+    }
+    };
+    </script>
+
+</html>
