@@ -34,39 +34,118 @@
             </div>
         </div>
         <!----------Content---------->
-        <!--
         <div class="portfolio-grid" id="grid">
             <div class="portfolio-item">
                 <h2>Le Vieux Sage</h2>
-                <div class="transition-wrapper" onclick="switchScreen('discord_bot/discord_bot.html')">
+                <div class="transition-wrapper" onclick="toggleDetail(detail6, 'rgb(81, 101, 246)', 'white')">
                     <div class="picture-and-text">
                         <img src="discord_bot/discord_logo.png">
                         <div class="subtitle">Un bot discord afin de demander des informations lors de jeux de rôles. Développé avec Python et des API.</div>
                     </div>
                 </div>
+                <div class="detail" id="detail6">
+                    <div class="detail-cover"></div>
+                    <div class="detail-wrapper">
+                        <h3>Un script pour les gouverner tous</h3>
+                        <div class="img-long"><img src="discord_bot/discord_bot.png"></div>
+                        <div class="detail-textWrapper">
+                            <p>
+                                Afin de faciliter mes parties de jeu de rôles, j'ai créé un bot discord. Les joueurs peuvent alors lui demander des informations
+                                sur des sortilèges et les obtenir rapidement. Cependant, en plus de cela, les joueurs peuvent facilement changer les informations que renvoie le bot
+                                sans avoir à toucher au code.<br>
+                                <br>
+                                J'ai donc un script python qui me permet de mettre en lien ces éléments. Il utilise les éléments suivants:
+                                <ul>
+                                    <li>L'API discord</li>
+                                    <li>Dropbox avec request</li>
+                                    <li>Un fichier xlsx</li>
+                                </ul>
+                                <br>
+                                J'ai choisi d'utiliser Dropbox plutôt que Google Sheet pour héberger la base de données des joueurs par soucis
+                                de la propriété des données. Cependant j'ai également créé une autre version du projet, plus pratique pour les utilisateurs avec les éléments suivants:
+                                <ul>
+                                    <li>L'API discord</li>
+                                    <li>L'API Google Sheet</li>
+                                    <li>Une base de données SQL</li>
+                                </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="portfolio-item">
                 <h2>Sewing Drawer</h2>
-                <div class="transition-wrapper" onclick="switchScreen('sewing_drawer/sewing_drawer.html')">
+                <div class="transition-wrapper" onclick="toggleDetail(detail5, 'rgb(63, 65, 66)', 'white')">
                     <div class="picture-and-text">
                         <img src="sewing_drawer/kivy_logo.png">
                         <div class="subtitle">Une application android destinée à faire un inventaire de couture. Développé avec Python et la librairie Kivy.</div>
                     </div>
                 </div>
+                <div class="detail" id="detail5">
+                    <div class="detail-cover"></div>
+                    <div class="detail-wrapper">
+                        <h3>Un Projet python ?</h3>
+                        <div class="img-long"><img src="sewing_drawer/sewing_drawer_1.jpg"></div>
+                        <div class="detail-textWrapper">
+                            <p>
+                                Afin de pouvoir créer des applications plus poussées, je me suis penché vers le language Python.
+                                Après quelques projets d'autoformation, voici Sewing Drawer, mon premier projet python terminé.
+                                <br> J'ai créé toute l'interface graphique de l'application avec Kivy, et j'ai utilisé SQLite pour gérer les bases de données.
+                                <br>
+                                <br> Ainsi l'application permet de faire des inventaires de coutures, avec des catégories différentes:
+                                <ul>
+                                    <li>Le tissu</li>
+                                    <li>Les projets</li>
+                                    <li>Une liste de courses</li>
+                                    <li>Les mesures</li>
+                                </ul>
+                                Par contre, le point le plus important du projet est que j'ai ainsi pu créer un fichier APK de l'application
+                                afin d'avoir son inventaire directement sur son portable. Vous pouvez d'ailleurs trouver ce fichier <a href="https://drive.google.com/drive/folders/1mWjw36OCbddmOvUjFMC3QN-nqCKQT4sP?usp=sharing">ici</a>.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="portfolio-item">
                 <h2>Sewing Rox</h2>
-                <div class="transition-wrapper" onclick="switchScreen('sewing_rox/sewing_rox.html')">
+                <div class="transition-wrapper" onclick="toggleDetail(detail4, 'rgb(237, 237, 237)', 'rgb(63, 90, 132)')">
                     <div class="picture-and-text">
                         <img src="sewing_rox/sewing_rox_logo.png">
                         <div class="subtitle">Un exemple de site internet pour exposer de la couture.</div>
                     </div>
                 </div>
+                <div class="detail" id="detail4">
+                    <div class="detail-cover"></div>
+                    <div class="detail-wrapper">
+                        <h3>Fabriquer des sites internet</h3>
+                        <div class="slide-img" id="slideImg">
+                            <div class="arrows" id="arrowsContainer">
+                                <img src="sewing_rox/ArrowLeft.png" onclick="slideLeft()" id="leftArrow">
+                                <img src="sewing_rox/ArrowRight.png" onclick="slideRight()" id="rightArrow">
+                            </div>
+                            <div class="slide-img-wrapper" id="slideShow">
+                                <div class="slide1" id="initialSlide"><img src="sewing_rox/sewingrox1.png"></div>
+                                <div class="slide2"><img src="sewing_rox/sewingrox2.png"></div>
+                                <div class="slide3"><img src="sewing_rox/sewingrox3.png"></div>
+                            </div>
+                        </div>
+                        <div class="detail-textWrapper">
+                            <p>
+                                Ce projet m'a principalement servi à apprendre comment créer un site internet.
+                                <br>Ainsi nous avons un site permettant d'exposer des projets de couture et de faire un portfolio.
+                                J'ai du apprendre à coder en HTML, CSS et JavaScript, pour fabriquer différents éléments comme un slider d'image ou bien un tri des objets du portfolio.
+                                <br>
+                                <br>Vous pouvez d'ailleurs visiter ce site : <a href="https://ennachenh.github.io/SewingRox/">https://ennachenh.github.io/SewingRox/</a>
+                                <br>
+                                <br>Le site n'est pas terminé, ni optimisé car il n'a pas d'utilité pour l'instant mais dans le futur, si le besoin se présente, et bien je continurai tout ça.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
-        -->
             <div class="portfolio-item">
                 <h2>Spidy Vs The Bugs</h2>
-                <div class="transition-wrapper" onclick="toggleDetail(detail3, 'rgb(39, 32, 52)', 'white')">
+                <div class="transition-wrapper" onclick="toggleDetail(detail3, 'rgb(91, 91, 91)', 'yellow')">
                     <div class="picture-and-text">
                         <img src="spidy/spidy_logo.png">
                         <div class="subtitle">Un jeu vidéo platformer 2D fait en un mois lors d'une Game Jam. Fait avec Unity en C#.</div>
@@ -82,10 +161,18 @@
                         </video>
                         <div class="detail-textWrapper">
                             <p>
+                                J'ai créé ce jeu lors d'une gamejam, la Game-Off 2021 de itch.io dont le thème était "BUG".
+                                Ainsi, le jeu aborde le thème de deux manières : avec des insectes (traduction de bug)
+                                et avec des papillons corrompus (et donc buggés).
+                                Cette gamejam était une expérience intéressante et elle est venu avec son lot de défis :
                             </p>
                             <ul>
+                                <li>Le respect du thème de la gamejam</li>
+                                <li>Le respect de la deadline</li>
+                                <li>J'ai pu avoir le retour d'autres participants de la gamejam sur mon jeu, mais j'ai également pu tester leur jeu. Cela m'a permis de voir différentes approches du thème et ce que j'aurais pu modifier sur mon jeu</li>
                             </ul>
                             <p>
+                                Vous pouvez retrouver le jeu sur <a href="https://ennache.itch.io/spidy-vs-the-bugs">itch.io</a>.
                             </p>
                         </div>
                     </div>
@@ -122,8 +209,7 @@
                                 <li>Mettre en place une interface graphique</li>
                             </ul>
                             <p>
-                                Si vous êtes curieux,
-                                le jeu est disponible sur <a href="https://ennache.itch.io/daggerdash">itch.io</a>.
+                                Vous pouvez retrouver le jeu sur <a href="https://ennache.itch.io/daggerdash">itch.io</a>.
                             </p>
                         </div>
                     </div>
@@ -141,7 +227,7 @@
                     <div class="detail-cover"></div>
                     <div class="detail-wrapper">
                         <h3>Des applications concrètes</h3>
-                        <img src="arduino/arduino1.png">
+                        <div class="img-long"><img src="arduino/arduino1.png"></div>
                         <div class="detail-textWrapper">
                             <p>
                                 Lors de mes études en ingénierie électrique, j'avais décidé d'acheter un kit Arduino afin de pouvoir faire des montages électroniques chez moi.
@@ -250,6 +336,37 @@
         old_scroll_position = new_scroll_position;
     })
 
+    /*Slide Show*/
+    document.getElementById('arrowsContainer').style.height = document.getElementById('slideShow').offsetHeight + "px";
+
+    var arrowWidth = "75px";
+    var leftArrow = document.getElementById('leftArrow');
+    var rightArrow = document.getElementById('rightArrow');
+    leftArrow.style.width = "0px";
+    rightArrow.style.width = arrowWidth;
+
+    var initialSlide = document.getElementById('initialSlide');
+    initialSlide.style.marginLeft = "0%";
+    function slideRight() {
+        if (initialSlide.style.marginLeft == "0%") {
+            initialSlide.style.marginLeft = "-100%";
+            leftArrow.style.width = arrowWidth;
+        }
+        else if (initialSlide.style.marginLeft == "-100%") {
+            initialSlide.style.marginLeft = "-200%";
+            rightArrow.style.width = "0px";
+        }
+    }
+    function slideLeft() {
+        if (initialSlide.style.marginLeft == "-200%") {
+            initialSlide.style.marginLeft = "-100%";
+            rightArrow.style.width = arrowWidth;
+        }
+        else if (initialSlide.style.marginLeft == "-100%") {
+            initialSlide.style.marginLeft = "0%";
+            leftArrow.style.width = "0px";
+        }
+    }
     
     /* Transition */
     async function switchScreen(url) {

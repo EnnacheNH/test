@@ -195,10 +195,17 @@ h1 {
     font-size: 24pt;
 }
 
-.detail img{
-    width: auto;
+.detail > .detail-wrapper > img{
+    width: 100%;
     height: auto;
-    max-height: clamp(10px, 100%, 500px);
+    max-height: 500px;
+    max-width: 1000px;
+}
+
+.detail > .detail-wrapper > .img-long > img{
+    width: auto;
+    height: 100%;
+    max-height: 500px;
     max-width: clamp(10px, 100%, 1000px);
 }
 
